@@ -22,7 +22,7 @@ To keep our repository history readable, **all commit messages must start with a
 * **Variable Naming:** Use descriptive camelCase (e.g., `targetBaseAngle` instead of `x`).
 * **Non-Blocking Logic:** Avoid using `delay()` inside the main loop if possible; use `millis()` so the "Stop" button always stays responsive.
 
-## 4. Hardware Safety (THE "GOLDEN RULES")
+## 4. Hardware Safety
 Robotic arms are physically powerful and electrically sensitive.
 
 1. **Verify Voltage:** Never plug the 7.4V LiPo directly into the ESP32. Always ensure the 5V regulator is between the battery and the MCU.
