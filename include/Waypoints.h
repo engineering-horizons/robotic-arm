@@ -10,6 +10,8 @@ struct Waypoint {
     int gripper;  // Open/Close
 };
 
+
+// --- Saved Waypoints --
 const Waypoint posRest    = {90, 90, 90, 90, 10}; 
 const Waypoint posPickUp  = {45, 120, 60, 90, 80}; 
 const Waypoint posDropOff = {135, 110, 70, 90, 10};
