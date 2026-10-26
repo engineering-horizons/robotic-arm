@@ -1,0 +1,8 @@
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32dev/firmware.elf"
+diagram = "diagram.json"
+
+[[chip]]
+name = "pca9685"
+binary = "custom_chips/pca9685.chip.wasm"

@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "author": "blaker1",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -500,
+      "left": -400,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "chip-pca9685", "id": "chip2", "top": -229.38, "left": 43.2, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": -400,
+      "left": -400,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo3",
+      "top": -300,
+      "left": -400,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo4",
+      "top": -200,
+      "left": -400,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -480
+      ,
+      "left": -400,
+      "attrs": { "text": "S1 - WRIST" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -380,
+      "left": -400,
+      "attrs": { "text": "S2 - ELBOW" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -280,
+      "left": -400,
+      "attrs": { "text": "S3 - SHOULDER" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": -180,
+      "left": -400,
+      "attrs": { "text": "S4 - BASE" }
+    }
+  ],
+  "connections": [
+    [ "servo1:V+", "mega:5V", "red", [ "h60.27", "v414.84", "h297.53" ] ],
+    [ "servo1:GND", "mega:GND.2", "black", [ "h47.3", "v412.55", "h320.25" ] ],
+    [ "chip2:SDA", "mega:20", "green", [ "h0" ] ],
+    [ "chip2:SCL", "mega:21", "green", [ "h0" ] ],
+    [ "chip2:LED0", "servo1:PWM", "green", [ "h-164.54", "v-20.52" ] ],
+    [ "chip2:LED3", "servo4:PWM", "green", [ "h78.61", "v364.8" ] ],
+    [ "chip2:LED2", "servo3:PWM", "green", [ "h78.61", "v364.8" ] ],
+    [ "chip2:LED1", "servo2:PWM", "green", [ "h78.61", "v364.8" ] ],
+    [ "servo2:V+", "servo1:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
+    [ "servo3:V+", "servo2:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
+    [ "servo4:V+", "servo3:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
+    [ "servo2:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
+    [ "servo3:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
+    [ "servo4:GND", "servo1:GND", "black", [ "h48", "v-48" ] ]
+  ],
+  "dependencies": { "chip-pca9685": "github:bonnyr/wokwi-pca9685-custom-chip@0.1.1" }
+}
