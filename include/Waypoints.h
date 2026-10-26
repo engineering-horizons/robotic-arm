@@ -2,18 +2,18 @@
 #define WAYPOINTS_H
 
 // Data structure to hold the 4-DOF joint angles
-struct Waypoint {
+typedef struct Waypoint {
     int base;     // Horizontal movement
     int shoulder; // Raising/lowering
     int elbow;    // Reach
     int wrist;    // Vertical orientation
     int gripper;  // Open/Close
-};
+} Waypoint;
 
 
 // --- Saved Waypoints --
-const Waypoint posRest    = {90, 90, 90, 90, 10}; 
-const Waypoint posPickUp  = {45, 120, 60, 90, 80}; 
-const Waypoint posDropOff = {135, 110, 70, 90, 10};
+extern const Waypoint posRest    = {90, 90, 90, 90, 10}; 
+extern const Waypoint posPickUp  = {45, 120, 60, 90, 80}; 
+extern const Waypoint posDropOff = {135, 110, 70, 90, 10};
 
-#endif
+#endif  // WAYPOINTS_H

@@ -3,7 +3,7 @@
   "author": "blaker1",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": -2.72, "left": 4.8, "attrs": {} },
     {
       "type": "wokwi-servo",
       "id": "servo1",
@@ -40,8 +40,7 @@
     {
       "type": "wokwi-text",
       "id": "text1",
-      "top": -480
-      ,
+      "top": -480,
       "left": -400,
       "attrs": { "text": "S1 - WRIST" }
     },
@@ -68,20 +67,22 @@
     }
   ],
   "connections": [
-    [ "servo1:V+", "mega:5V", "red", [ "h60.27", "v414.84", "h297.53" ] ],
-    [ "servo1:GND", "mega:GND.2", "black", [ "h47.3", "v412.55", "h320.25" ] ],
-    [ "chip2:SDA", "mega:20", "green", [ "h0" ] ],
-    [ "chip2:SCL", "mega:21", "green", [ "h0" ] ],
+    [ "servo1:V+", "esp:VIN", "red", [ "h60.27", "v593.1", "h112.13" ] ],
+    [ "chip2:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "chip2:SCL", "esp:22", "green", [ "h0" ] ],
     [ "chip2:LED0", "servo1:PWM", "green", [ "h-164.54", "v-20.52" ] ],
-    [ "chip2:LED3", "servo4:PWM", "green", [ "h78.61", "v364.8" ] ],
-    [ "chip2:LED2", "servo3:PWM", "green", [ "h78.61", "v364.8" ] ],
     [ "chip2:LED1", "servo2:PWM", "green", [ "h78.61", "v364.8" ] ],
+    [ "chip2:LED2", "servo3:PWM", "green", [ "h78.61", "v364.8" ] ],
+    [ "chip2:LED3", "servo4:PWM", "green", [ "h78.61", "v364.8" ] ],
     [ "servo2:V+", "servo1:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
     [ "servo3:V+", "servo2:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
     [ "servo4:V+", "servo3:V+", "red", [ "h28.8", "v-57.7", "h-19.2" ] ],
     [ "servo2:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
     [ "servo3:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
-    [ "servo4:GND", "servo1:GND", "black", [ "h48", "v-48" ] ]
+    [ "servo4:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
+    [ "esp:GND.2", "servo4:GND", "black", [ "h-192", "v-278.4" ] ],
+    [ "esp:D21", "chip2:SDA", "green", [ "h124.31", "v-268.8" ] ],
+    [ "esp:D22", "chip2:SCL", "green", [ "h105.11", "v-230.4" ] ]
   ],
   "dependencies": { "chip-pca9685": "github:bonnyr/wokwi-pca9685-custom-chip@0.1.1" }
 }
