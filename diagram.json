@@ -3,6 +3,14 @@
   "author": "blaker1",
   "editor": "wokwi",
   "parts": [
+    {
+      "type": "wokwi-breadboard-mini",
+      "id": "bb1",
+      "top": 260.1,
+      "left": -25.3,
+      "rotate": 90,
+      "attrs": {}
+    },
     { "type": "board-esp32-devkit-v1", "id": "esp", "top": -2.72, "left": 4.8, "attrs": {} },
     {
       "type": "wokwi-servo",
@@ -64,6 +72,14 @@
       "top": -180,
       "left": -400,
       "attrs": { "text": "S4 - BASE" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 242.4,
+      "left": 29,
+      "rotate": 180,
+      "attrs": { "color": "green", "xray": "1", "bounce": "1", "key": " " }
     }
   ],
   "connections": [
@@ -82,7 +98,14 @@
     [ "servo4:GND", "servo1:GND", "black", [ "h48", "v-48" ] ],
     [ "esp:GND.2", "servo4:GND", "black", [ "h-192", "v-278.4" ] ],
     [ "esp:D21", "chip2:SDA", "green", [ "h124.31", "v-268.8" ] ],
-    [ "esp:D22", "chip2:SCL", "green", [ "h105.11", "v-230.4" ] ]
+    [ "esp:D22", "chip2:SCL", "green", [ "h105.11", "v-230.4" ] ],
+    [ "esp:VIN", "bb1:2b.j", "red", [ "h-38.4", "v86.4" ] ],
+    [ "bb1:4t.a", "esp:D2", "green", [ "h57.6", "v-134.4" ] ],
+    [ "btn1:1.l", "bb1:4t.c", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:2t.c", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:4b.h", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:2b.h", "", [ "$bb" ] ],
+    [ "esp:GND.2", "bb1:4b.j", "black", [ "h-57.6", "v19.2" ] ]
   ],
   "dependencies": { "chip-pca9685": "github:bonnyr/wokwi-pca9685-custom-chip@0.1.1" }
 }
